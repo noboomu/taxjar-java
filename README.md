@@ -1,8 +1,10 @@
 # TaxJar Sales Tax API for Java ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/taxjar/taxjar-java?style=flat-square&label=release&sort=semver)
 
-<a href="https://developers.taxjar.com"><img src="https://www.taxjar.com/img/TJ_logo_color_office_png.png" alt="TaxJar" width="220"></a>
+<a href="https://developers.taxjar.com"></a>
 
 Official Java client for the [TaxJar API](https://www.taxjar.com/api/). For the API documentation, please visit [https://developers.taxjar.com/api](https://developers.taxjar.com/api/reference/?java).
+
+Ported from GSON to Jackson.
 
 <hr>
 
