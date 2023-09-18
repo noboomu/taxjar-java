@@ -1,21 +1,21 @@
 package com.taxjar.model.validations;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Address {
-    @SerializedName("country")
+    @JsonProperty("country")
     String country;
 
-    @SerializedName("zip")
+    @JsonProperty("zip")
     String zip;
 
-    @SerializedName("state")
+    @JsonProperty("state")
     String state;
 
-    @SerializedName("city")
+    @JsonProperty("city")
     String city;
 
-    @SerializedName("street")
+    @JsonProperty("street")
     String street;
 
     public String getCountry() {

@@ -1,91 +1,91 @@
 package com.taxjar.model.taxes;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Shipping {
-    @SerializedName("taxable_amount")
+    @JsonProperty("taxable_amount")
     Float taxableAmount;
 
-    @SerializedName("tax_collectable")
+    @JsonProperty("tax_collectable")
     Float taxCollectable;
 
-    @SerializedName("combined_tax_rate")
+    @JsonProperty("combined_tax_rate")
     Float combinedTaxRate;
 
-    @SerializedName("state_taxable_amount")
+    @JsonProperty("state_taxable_amount")
     Float stateTaxableAmount;
 
-    @SerializedName("state_sales_tax_rate")
+    @JsonProperty("state_sales_tax_rate")
     Float stateTaxRate;
 
-    @SerializedName("state_amount")
+    @JsonProperty("state_amount")
     Float stateAmount;
 
-    @SerializedName("county_taxable_amount")
+    @JsonProperty("county_taxable_amount")
     Float countyTaxableAmount;
 
-    @SerializedName("county_tax_rate")
+    @JsonProperty("county_tax_rate")
     Float countyTaxRate;
 
-    @SerializedName("county_amount")
+    @JsonProperty("county_amount")
     Float countyAmount;
 
-    @SerializedName("city_taxable_amount")
+    @JsonProperty("city_taxable_amount")
     Float cityTaxableAmount;
 
-    @SerializedName("city_tax_rate")
+    @JsonProperty("city_tax_rate")
     Float cityTaxRate;
 
-    @SerializedName("city_amount")
+    @JsonProperty("city_amount")
     Float cityAmount;
 
-    @SerializedName("special_taxable_amount")
+    @JsonProperty("special_taxable_amount")
     Float specialDistrictTaxableAmount;
 
-    @SerializedName("special_tax_rate")
+    @JsonProperty("special_tax_rate")
     Float specialDistrictTaxRate;
 
-    @SerializedName("special_district_amount")
+    @JsonProperty("special_district_amount")
     Float specialDistrictAmount;
 
     // International
 
-    @SerializedName("country_taxable_amount")
+    @JsonProperty("country_taxable_amount")
     Float countryTaxableAmount;
 
-    @SerializedName("country_tax_rate")
+    @JsonProperty("country_tax_rate")
     Float countryTaxRate;
 
-    @SerializedName("country_tax_collectable")
+    @JsonProperty("country_tax_collectable")
     Float countryTaxCollectable;
 
     // Canada
 
-    @SerializedName("gst_taxable_amount")
+    @JsonProperty("gst_taxable_amount")
     Float gstTaxableAmount;
 
-    @SerializedName("gst_tax_rate")
+    @JsonProperty("gst_tax_rate")
     Float gstTaxRate;
 
-    @SerializedName("gst")
+    @JsonProperty("gst")
     Float gst;
 
-    @SerializedName("pst_taxable_amount")
+    @JsonProperty("pst_taxable_amount")
     Float pstTaxableAmount;
 
-    @SerializedName("pst_tax_rate")
+    @JsonProperty("pst_tax_rate")
     Float pstTaxRate;
 
-    @SerializedName("pst")
+    @JsonProperty("pst")
     Float pst;
 
-    @SerializedName("qst_taxable_amount")
+    @JsonProperty("qst_taxable_amount")
     Float qstTaxableAmount;
 
-    @SerializedName("qst_tax_rate")
+    @JsonProperty("qst_tax_rate")
     Float qstTaxRate;
 
-    @SerializedName("qst")
+    @JsonProperty("qst")
     Float qst;
 
     public Float getTaxableAmount() {

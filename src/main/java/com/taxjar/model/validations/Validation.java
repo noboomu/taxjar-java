@@ -1,18 +1,18 @@
 package com.taxjar.model.validations;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Validation {
-    @SerializedName("valid")
+    @JsonProperty("valid")
     Boolean valid;
 
-    @SerializedName("exists")
+    @JsonProperty("exists")
     Boolean exists;
 
-    @SerializedName("vies_available")
+    @JsonProperty("vies_available")
     Boolean viesAvailable;
 
-    @SerializedName("vies_response")
+    @JsonProperty("vies_response")
     ViesResponse viesResponse;
 
     public Boolean getValid() {

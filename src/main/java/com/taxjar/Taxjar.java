@@ -1,7 +1,9 @@
 package com.taxjar;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.taxjar.exception.TaxjarException;
 import com.taxjar.model.categories.CategoryResponse;
 import com.taxjar.model.customers.CustomerResponse;
@@ -27,7 +29,7 @@ import okhttp3.Request;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
 import java.net.URI;
@@ -72,33 +74,43 @@ public class Taxjar {
         }
 
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
-            @Override
-            public okhttp3.Response intercept(Chain chain) throws IOException {
-                Request.Builder requestBuilder = chain.request().newBuilder()
-                        .addHeader("Authorization", "Bearer " + apiToken)
-                        .addHeader("User-Agent", getUserAgent());
+                    @Override
+                    public okhttp3.Response intercept(Chain chain) throws IOException {
+                        Request.Builder requestBuilder = chain.request().newBuilder()
+                                .addHeader("Authorization", "Bearer " + apiToken)
+                                .addHeader("User-Agent", getUserAgent());
 
-                if (headers != null) {
-                    for (Map.Entry<String, String> header : headers.entrySet()) {
-                        requestBuilder.addHeader(header.getKey(), header.getValue());
+                        if (headers != null) {
+                            for (Map.Entry<String, String> header : headers.entrySet()) {
+                                requestBuilder.addHeader(header.getKey(), header.getValue());
+                            }
+                        }
+
+                        return chain.proceed(requestBuilder.build());
                     }
-                }
-
-                return chain.proceed(requestBuilder.build());
-            }
-        })
+                })
                 .connectTimeout(this.timeout, TimeUnit.MILLISECONDS)
                 .writeTimeout(this.timeout, TimeUnit.MILLISECONDS)
                 .readTimeout(this.timeout, TimeUnit.MILLISECONDS)
                 .build();
 
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT, true);
+        objectMapper.configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true);
+        objectMapper.configure(DeserializationFeature.EAGER_DESERIALIZER_FETCH, true);
+        objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
+        objectMapper.configure(DeserializationFeature.USE_BIG_DECIMAL_FOR_FLOATS, true);
+        objectMapper.configure(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL, true);
+        objectMapper.configure(JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN, true);
+        objectMapper.disable(DeserializationFeature.ADJUST_DATES_TO_CONTEXT_TIME_ZONE);
+        objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(this.apiUrl + "/" + API_VERSION + "/")
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .addConverterFactory(JacksonConverterFactory.create(objectMapper))
                 .client(client)
                 .build();
 

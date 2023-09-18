@@ -1,12 +1,12 @@
 package com.taxjar.model.customers;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ExemptRegion {
-    @SerializedName("country")
+    @JsonProperty("country")
     String country;
 
-    @SerializedName("state")
+    @JsonProperty("state")
     String state;
 
     public String getCountry() {

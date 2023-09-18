@@ -1,34 +1,36 @@
 package com.taxjar.model.customers;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Customer {
-    @SerializedName("customer_id")
+    @JsonProperty("customer_id")
     String customerId;
 
-    @SerializedName("exemption_type")
+    @JsonProperty("exemption_type")
     String exemptionType;
 
-    @SerializedName("exempt_regions")
-    List<ExemptRegion> exemptRegions;
+    @JsonProperty("exempt_regions")
+    List<ExemptRegion> exemptRegions  = new ArrayList<>();;
 
-    @SerializedName("name")
+    @JsonProperty("name")
     String name;
 
-    @SerializedName("country")
+    @JsonProperty("country")
     String country;
 
-    @SerializedName("state")
+    @JsonProperty("state")
     String state;
 
-    @SerializedName("zip")
+    @JsonProperty("zip")
     String zip;
 
-    @SerializedName("city")
+    @JsonProperty("city")
     String city;
 
-    @SerializedName("street")
+    @JsonProperty("street")
     String street;
 
     public String getCustomerId() {

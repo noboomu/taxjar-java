@@ -1,24 +1,24 @@
 package com.taxjar.model.summarized_rates;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SummaryRate {
-    @SerializedName("country_code")
+    @JsonProperty("country_code")
     String countryCode;
 
-    @SerializedName("country")
+    @JsonProperty("country")
     String country;
 
-    @SerializedName("region_code")
+    @JsonProperty("region_code")
     String regionCode;
 
-    @SerializedName("region")
+    @JsonProperty("region")
     String region;
 
-    @SerializedName("minimum_rate")
+    @JsonProperty("minimum_rate")
     MinimumRate minimumRate;
 
-    @SerializedName("average_rate")
+    @JsonProperty("average_rate")
     AverageRate averageRate;
 
     public String getCountryCode() {

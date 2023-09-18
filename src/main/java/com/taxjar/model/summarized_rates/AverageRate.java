@@ -1,12 +1,12 @@
 package com.taxjar.model.summarized_rates;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AverageRate {
-    @SerializedName("label")
+    @JsonProperty("label")
     String label;
 
-    @SerializedName("rate")
+    @JsonProperty("rate")
     Float rate;
 
     public String getLabel() {

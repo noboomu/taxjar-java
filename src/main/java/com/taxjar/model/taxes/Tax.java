@@ -1,41 +1,41 @@
 package com.taxjar.model.taxes;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Tax {
-    @SerializedName("order_total_amount")
+    @JsonProperty("order_total_amount")
     Float orderTotalAmount;
 
-    @SerializedName("shipping")
+    @JsonProperty("shipping")
     Float shipping;
 
-    @SerializedName("taxable_amount")
+    @JsonProperty("taxable_amount")
     Float taxableAmount;
 
-    @SerializedName("amount_to_collect")
+    @JsonProperty("amount_to_collect")
     Float amountToCollect;
 
-    @SerializedName("rate")
+    @JsonProperty("rate")
     Float rate;
 
-    @SerializedName("has_nexus")
+    @JsonProperty("has_nexus")
     Boolean hasNexus;
 
-    @SerializedName("freight_taxable")
+    @JsonProperty("freight_taxable")
     Boolean freightTaxable;
 
-    @SerializedName("tax_source")
+    @JsonProperty("tax_source")
     String taxSource;
 
-    @SerializedName("exemption_type")
+    @JsonProperty("exemption_type")
     String exemptionType;
 
     // ---
 
-    @SerializedName("jurisdictions")
+    @JsonProperty("jurisdictions")
     Jurisdictions jurisdictions;
 
-    @SerializedName("breakdown")
+    @JsonProperty("breakdown")
     Breakdown breakdown;
 
     public Float getOrderTotalAmount() {

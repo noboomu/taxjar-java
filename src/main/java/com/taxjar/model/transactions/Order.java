@@ -1,65 +1,67 @@
 package com.taxjar.model.transactions;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    @SerializedName("transaction_id")
+    @JsonProperty("transaction_id")
     String transactionId;
 
-    @SerializedName("user_id")
+    @JsonProperty("user_id")
     Integer userId;
 
-    @SerializedName("transaction_date")
+    @JsonProperty("transaction_date")
     String transactionDate;
 
-    @SerializedName("provider")
+    @JsonProperty("provider")
     String provider;
 
-    @SerializedName("from_country")
+    @JsonProperty("from_country")
     String fromCountry;
 
-    @SerializedName("from_zip")
+    @JsonProperty("from_zip")
     String fromZip;
 
-    @SerializedName("from_state")
+    @JsonProperty("from_state")
     String fromState;
 
-    @SerializedName("from_city")
+    @JsonProperty("from_city")
     String fromCity;
 
-    @SerializedName("from_street")
+    @JsonProperty("from_street")
     String fromStreet;
 
-    @SerializedName("to_country")
+    @JsonProperty("to_country")
     String toCountry;
 
-    @SerializedName("to_zip")
+    @JsonProperty("to_zip")
     String toZip;
 
-    @SerializedName("to_state")
+    @JsonProperty("to_state")
     String toState;
 
-    @SerializedName("to_city")
+    @JsonProperty("to_city")
     String toCity;
 
-    @SerializedName("to_street")
+    @JsonProperty("to_street")
     String toStreet;
 
-    @SerializedName("amount")
+    @JsonProperty("amount")
     Float amount;
 
-    @SerializedName("shipping")
+    @JsonProperty("shipping")
     Float shipping;
 
-    @SerializedName("sales_tax")
+    @JsonProperty("sales_tax")
     Float salesTax;
 
-    @SerializedName("exemption_type")
+    @JsonProperty("exemption_type")
     String exemptionType;
 
-    @SerializedName("line_items")
-    List<LineItem> lineItems;
+    @JsonProperty("line_items")
+    List<LineItem> lineItems  = new ArrayList<>();;
 
     public String getTransactionId() {
         return transactionId;

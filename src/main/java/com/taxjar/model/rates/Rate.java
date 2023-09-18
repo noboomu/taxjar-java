@@ -1,66 +1,66 @@
 package com.taxjar.model.rates;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Rate {
-    @SerializedName("zip")
+    @JsonProperty("zip")
     String zip;
 
-    @SerializedName("state")
+    @JsonProperty("state")
     String state;
 
-    @SerializedName("state_rate")
+    @JsonProperty("state_rate")
     Float stateRate;
 
-    @SerializedName("county")
+    @JsonProperty("county")
     String county;
 
-    @SerializedName("county_rate")
+    @JsonProperty("county_rate")
     Float countyRate;
 
-    @SerializedName("city")
+    @JsonProperty("city")
     String city;
 
-    @SerializedName("city_rate")
+    @JsonProperty("city_rate")
     Float cityRate;
 
-    @SerializedName("combined_district_rate")
+    @JsonProperty("combined_district_rate")
     Float combinedDistrictRate;
 
-    @SerializedName("combined_rate")
+    @JsonProperty("combined_rate")
     Float combinedRate;
 
-    @SerializedName("freight_taxable")
+    @JsonProperty("freight_taxable")
     Boolean freightTaxable;
 
     // International
 
-    @SerializedName("country")
+    @JsonProperty("country")
     String country;
 
-    @SerializedName("name")
+    @JsonProperty("name")
     String name;
 
     // Australia / SST States
 
-    @SerializedName("country_rate")
+    @JsonProperty("country_rate")
     Float countryRate;
 
     // European Union
 
-    @SerializedName("standard_rate")
+    @JsonProperty("standard_rate")
     Float standardRate;
 
-    @SerializedName("reduced_rate")
+    @JsonProperty("reduced_rate")
     Float reducedRate;
 
-    @SerializedName("super_reduced_rate")
+    @JsonProperty("super_reduced_rate")
     Float superReducedRate;
 
-    @SerializedName("parking_rate")
+    @JsonProperty("parking_rate")
     Float parkingRate;
 
-    @SerializedName("distance_sale_threshold")
+    @JsonProperty("distance_sale_threshold")
     Float distanceSaleThreshold;
 
     public String getZip() {

@@ -1,24 +1,24 @@
 package com.taxjar.model.validations;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ViesResponse {
-    @SerializedName("country_code")
+    @JsonProperty("country_code")
     String countryCode;
 
-    @SerializedName("vat_number")
+    @JsonProperty("vat_number")
     String vatNumber;
 
-    @SerializedName("request_date")
+    @JsonProperty("request_date")
     String requestDate;
 
-    @SerializedName("valid")
+    @JsonProperty("valid")
     Boolean valid;
 
-    @SerializedName("name")
+    @JsonProperty("name")
     String name;
 
-    @SerializedName("address")
+    @JsonProperty("address")
     String address;
 
     public String getCountryCode() {

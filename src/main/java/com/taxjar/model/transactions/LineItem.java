@@ -1,30 +1,30 @@
 package com.taxjar.model.transactions;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class LineItem {
-    @SerializedName("id")
+    @JsonProperty("id")
     String id;
 
-    @SerializedName("quantity")
+    @JsonProperty("quantity")
     Integer quantity;
 
-    @SerializedName("product_identifier")
+    @JsonProperty("product_identifier")
     String productIdentifier;
 
-    @SerializedName("description")
+    @JsonProperty("description")
     String description;
 
-    @SerializedName("product_tax_code")
+    @JsonProperty("product_tax_code")
     String productTaxCode;
 
-    @SerializedName("unit_price")
+    @JsonProperty("unit_price")
     Float unitPrice;
 
-    @SerializedName("discount")
+    @JsonProperty("discount")
     Float discount;
 
-    @SerializedName("sales_tax")
+    @JsonProperty("sales_tax")
     Float salesTax;
 
     public String getId() {

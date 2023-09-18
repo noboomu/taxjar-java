@@ -1,18 +1,18 @@
 package com.taxjar.model.nexus;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Region {
-    @SerializedName("country_code")
+    @JsonProperty("country_code")
     String countryCode;
 
-    @SerializedName("country")
+    @JsonProperty("country")
     String country;
 
-    @SerializedName("region_code")
+    @JsonProperty("region_code")
     String regionCode;
 
-    @SerializedName("region")
+    @JsonProperty("region")
     String region;
 
     public String getCountryCode() {

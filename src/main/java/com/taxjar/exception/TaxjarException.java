@@ -1,9 +1,7 @@
 package com.taxjar.exception;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSyntaxException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TaxjarException extends Exception {
     private Integer statusCode;
@@ -27,21 +25,21 @@ public class TaxjarException extends Exception {
     }
 
     private static String parseMessage(String errorMessage) {
-        Gson gson = new Gson();
+        ObjectMapper mapper = new ObjectMapper();
 
         if (errorMessage == null || errorMessage.equals("")) return "";
 
         try {
-            JsonObject json = gson.fromJson(errorMessage, JsonObject.class);
-            JsonElement error = json.get("error");
-            JsonElement detail = json.get("detail");
+            JsonNode json = mapper.readTree(errorMessage);
+            JsonNode error = json.get("error");
+            JsonNode detail = json.get("detail");
 
             if (error != null && detail != null) {
-                return error.getAsString() + " - " + detail.getAsString();
+                return error.textValue() + " - " + detail.textValue();
             } else {
                 return errorMessage;
             }
-        } catch (JsonSyntaxException e) {
+        } catch (Exception e) {
             return errorMessage;
         }
     }
@@ -55,20 +53,20 @@ public class TaxjarException extends Exception {
     }
 
     private static Integer parseStatusCode(String errorMessage) {
-        Gson gson = new Gson();
+        ObjectMapper mapper = new ObjectMapper();
 
         if (errorMessage == null) return 0;
 
         try {
-            JsonObject json = gson.fromJson(errorMessage, JsonObject.class);
-            JsonElement status = json.get("status");
+            JsonNode json = mapper.readTree(errorMessage);
+            JsonNode status = json.get("status");
 
             if (status != null) {
-                return status.getAsInt();
+                return status.intValue();
             } else {
                 return 0;
             }
-        } catch (JsonSyntaxException e) {
+        } catch (Exception e) {
             return 0;
         }
     }

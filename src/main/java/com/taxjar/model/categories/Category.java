@@ -1,15 +1,15 @@
 package com.taxjar.model.categories;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Category {
-    @SerializedName("name")
+    @JsonProperty("name")
     String name;
 
-    @SerializedName("product_tax_code")
+    @JsonProperty("product_tax_code")
     String productTaxCode;
 
-    @SerializedName("description")
+    @JsonProperty("description")
     String description;
 
     public String getName() {

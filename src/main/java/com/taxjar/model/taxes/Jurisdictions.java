@@ -1,18 +1,18 @@
 package com.taxjar.model.taxes;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Jurisdictions {
-    @SerializedName("country")
+    @JsonProperty("country")
     String country;
 
-    @SerializedName("state")
+    @JsonProperty("state")
     String state;
 
-    @SerializedName("county")
+    @JsonProperty("county")
     String county;
 
-    @SerializedName("city")
+    @JsonProperty("city")
     String city;
 
     public String getCountry() { return country; }
